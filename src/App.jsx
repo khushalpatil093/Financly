@@ -1,6 +1,6 @@
 import './App.css'
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import Dashboard from "./Pages/Dashboard";
+import Dashboard from "./pages/Dashboard";
 import Signup from "./pages/Signup";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
