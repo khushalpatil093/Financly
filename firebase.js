@@ -19,11 +19,14 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const db = getFirestore(app);
 const auth = getAuth(app);
+const firestore = getFirestore(app);
 const provider = new GoogleAuthProvider();
+
 export {
     db,
     auth,
     provider,
     doc,
-    setDoc
+    setDoc,
+    firestore,
 };

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Header from '../Components/Header'
 import Cards from '../Components/Cards'
 import AddExpense from '../Components/Modals/addExpense';
@@ -12,7 +12,7 @@ import Charts from '../Components/Charts';
 import NoTransactions from '../Components/NoTransactions';
 
 const Dashboard = () => {
-  
+
   const [transactions, setTransactions] = useState([]);
   const [loading, setLoading] = useState(false);
   const [user] = useAuthState(auth)
@@ -68,6 +68,12 @@ const Dashboard = () => {
     }
   }
 
+  const resetBalance = () => {
+    setIncome(0);
+    setExpense(0);
+    setTotalBalance(0);
+  };
+
   useEffect(() => {
     fetchTransactions();
   }, [user]);
@@ -121,9 +127,16 @@ const Dashboard = () => {
   return (
     <div>
       <Header/>
-
       {loading ? (
-        <p>Loading...</p>
+        <div style={{
+          height: "100vh",
+          width: "100vw", 
+          display: "flex", 
+          justifyContent: "center", 
+          alignItems: "center"
+        }}>
+          <p style={{ fontSize: "2rem", fontWeight: "bold", color: "#1287FF"}}>Loading...</p>
+        </div>
       ) : ( 
       <>
         <Cards
@@ -132,6 +145,7 @@ const Dashboard = () => {
           totalBalance={totalBalance}
           showExpenseModal={showExpenseModal}
           showIncomeModal={showIncomeModal}
+          resetBalance={resetBalance}
         />
         {transactions && transactions.length != 0 ? <Charts sortedTransactions={sortedTransactions} />:<NoTransactions/>}
         <AddExpense

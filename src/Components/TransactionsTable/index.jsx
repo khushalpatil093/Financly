@@ -172,7 +172,7 @@ function TransactionsTable({ transactions, addTransaction, fetchTransactions }) 
             />
           </div>
         </div>
-        <Table dataSource={sortedTransactions} columns={columns} />
+        <Table dataSource={sortedTransactions} columns={columns} style={{}}/>
       </div>
     </div>
   );
