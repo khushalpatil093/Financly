@@ -31,7 +31,7 @@ function SignUpSignIn() {
           .then((userCredential) => {
             const user = userCredential.user;
             console.log("User >>", user);
-            toast.success("User created!");
+            toast.success("User created!", {position: "bottom-center"});
             setLoading(false);
             setName("");
             setEmail("");
@@ -65,7 +65,7 @@ function SignUpSignIn() {
       signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           const user = userCredential.user;
-          toast.success("User Logged In!");
+          toast.success("User Logged In!", {position: "bottom-center"});
           setLoading(false);
           navigate("/dashboard");
         })
@@ -120,7 +120,7 @@ function SignUpSignIn() {
         const token = credential.accessToken;
         // The signed-in user info.
         const user = result.user;
-        toast.success("User Authenticated!");
+        // toast.success("User Authenticated!", {position: "bottom-center"});
         setLoading(false);
         createDoc(user);
         navigate("/dashboard");

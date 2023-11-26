@@ -111,10 +111,10 @@ const Dashboard = () => {
         });
         setTransactions(transactionsArray);
         console.log(transactionsArray);
-        toast.success("Transactions Fetched!");
+        // toast.success("Transactions Fetched!");
       } catch (error) {
         console.error("Error fetching documents: ", error);
-        toast.error("Couldn't fetch transactions");
+        // toast.error("Couldn't fetch transactions");
       }
     }
     setLoading(false);
