@@ -23,3 +23,29 @@
     opacity: 1;
     transition: all 0.3s;
 }
+
+.blink_meOnline {
+    animation: blinker 2s linear infinite;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    border: 1px solid #04ec04;
+    background-color: rgb(4, 241, 4);
+    border-radius: 100%;
+  }
+
+.blink_meOffline {
+    animation: blinker 2s linear infinite;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    border: 1px solid red;
+    background-color: red;
+    border-radius: 100%;
+}
+
+@keyframes blinker {
+    50% {
+      opacity: 0.4;
+    }
+  }

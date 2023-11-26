@@ -7,7 +7,8 @@ import { toast } from "react-toastify";
 import { signOut } from "firebase/auth";
 import userImg from '../../assets/user.svg';
 import { getDoc } from "firebase/firestore";
-import logo from '../../assets/letter-f.png'
+import logo from '../../assets/letter-f.png';
+import { useOnlineStatus } from "../../hooks/useOnlineStatus";
 
 function Header() {
 
@@ -16,6 +17,7 @@ function Header() {
   const [userName, setUserName] = useState(null);
 
   const navigate = useNavigate();
+  const isOnline = useOnlineStatus('online');
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((authUser) => {
@@ -70,6 +72,7 @@ function Header() {
             Hi, Welcome back{' '}
             {userName ? <span>{userName.name}</span> : <span>User</span>}
           </p>
+          <p className={`online-status ${isOnline ? 'blink_meOnline' : 'blink_meOffline'}`}></p>
         </div>
       ) : (
         <p className="logo">Financly.</p>
