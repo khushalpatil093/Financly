@@ -5,6 +5,7 @@
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     border-radius: 1rem;
     padding: 1rem 1.5rem;
+    background: #FFFFFF;
 }
 .title {
     font-weight: 500;

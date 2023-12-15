@@ -1,5 +1,5 @@
 .navbar {
-    background-color: #1287FF;
+    background-color: #FDFEFE;
     padding: 1rem 1.5rem;
     position: sticky;
     top: 0;
@@ -8,10 +8,11 @@
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 .logo {
-    color: white;
-    font-Weight: 500; 
+    color: #2C3E50;
+    font-Weight: 600; 
     font-Size: 1.2rem;
     margin: 0;
 }

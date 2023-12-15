@@ -24,18 +24,28 @@
 .graph-chart {
     height: 60vh;
     width: 60vw;
-    padding: 2rem;
+    padding: 2rem 2rem 4rem 2rem;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    border-radius: 1rem;
+    color: #2C3E50;
+    font-weight: 600;
+    font-size: 1.1rem;
+    background-color: #F7F9F9;
 }
 
 .pie-chart {
     height: 60vh;
     width: 20vw;
-    padding: 2rem;
+    padding: 2rem 2rem 4rem 2rem;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 1rem;
+    color: #2C3E50;
+    font-weight: 600;
+    font-size: 1.1rem;
+    background-color: #F7F9F9;
 }
 
 .input-flex {
@@ -71,4 +81,12 @@
 
 .select-input > div {
     border: 0px solid #fff !important;
+}
+
+.my-table {
+    margin-bottom: 4rem;
+}
+
+.ant-pagination {
+    display: none !important;
 }

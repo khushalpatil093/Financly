@@ -4,6 +4,8 @@
     border-radius: 0.5rem;
     min-width: 300px;
     flex: 1;
+    background-color: #F7F9F9;
+    color: #2C3E50;
 }
 
 .my-row {

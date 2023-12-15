@@ -1,9 +1,12 @@
 import { Radio, Select, Table } from "antd";
-import { unparse } from "papaparse";
+import { parse, unparse } from "papaparse";
 import React, { useState } from "react";
-import { redirect } from "react-router-dom";
 
-function TransactionsTable({ transactions, addTransaction, fetchTransactions }) {
+function TransactionsTable({
+  transactions,
+  addTransaction,
+  fetchTransactions,
+}) {
   const { Option } = Select;
   const [search, setSearch] = useState("");
   const [typeFilter, setTypeFilter] = useState("");
@@ -54,8 +57,8 @@ function TransactionsTable({ transactions, addTransaction, fetchTransactions }) 
 
   function exportToCsv() {
     let csv = unparse({
-      "fields": ["name", "type", "tag", "date", "amount"],
-      data : transactions,
+      fields: ["name", "type", "tag", "date", "amount"],
+      data: transactions,
     });
     let blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
     let url = URL.createObjectURL(blob);
@@ -73,7 +76,7 @@ function TransactionsTable({ transactions, addTransaction, fetchTransactions }) 
       parse(event.target.files[0], {
         header: true,
         complete: async function (results) {
-          for(const transaction of results.data) {
+          for (const transaction of results.data) {
             console.log(transaction);
             const newTransaction = {
               ...transaction,
@@ -81,11 +84,11 @@ function TransactionsTable({ transactions, addTransaction, fetchTransactions }) 
             };
             await addTransaction(newTransaction, true);
           }
-        }
-      })
+        },
+      });
       toast.success("All Transactions Added");
       fetchTransactions();
-      event.target.files = null;
+      event.target.value = null;
     } catch (e) {
       toast.error(e.message);
     }
@@ -153,10 +156,10 @@ function TransactionsTable({ transactions, addTransaction, fetchTransactions }) 
               display: "flex",
               justifyContent: "center",
               gap: "1rem",
-              padding: "0rem 0.5rem"
+              padding: "0rem 0.5rem",
             }}
           >
-            <button className="btn btn-blue" onClick={exportToCsv} >
+            <button className="btn btn-blue" onClick={exportToCsv}>
               Export to CSV
             </button>
             <label for="file-csv" className="btn btn-blue">
@@ -172,7 +175,7 @@ function TransactionsTable({ transactions, addTransaction, fetchTransactions }) 
             />
           </div>
         </div>
-        <Table dataSource={sortedTransactions} columns={columns} style={{}}/>
+        <Table dataSource={sortedTransactions} columns={columns} style={{}} />
       </div>
     </div>
   );

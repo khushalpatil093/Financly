@@ -4,7 +4,7 @@ import SignUpSignIn from '../Components/SignUpSignIn'
 
 const Signup = () => {
   return (
-    <div>
+    <div className='signup'>
       <Header/>
       <div className='wrapper'>
         <SignUpSignIn/>
